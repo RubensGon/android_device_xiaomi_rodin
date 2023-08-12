@@ -340,8 +340,9 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libcodec2_store_dolby-mtk.so': blob_fixup()
         .replace_needed('libcodec2_soft_ac4dec.so', 'libcodec2_soft_ac4dec-mtk.so')
         .replace_needed('libcodec2_soft_ddpdec.so', 'libcodec2_soft_ddpdec-mtk.so'),
-
-} # fmt: skip
+    'odm/etc/init/vendor.xiaomi.sensor.citsensorservice.aidl.rc': blob_fixup()
+        .add_line_if_missing('    task_profiles ServiceCapacityLow'),
+}  # fmt: skip
 
 module = ExtractUtilsModule(
     'rodin',
