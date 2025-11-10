@@ -4,3 +4,6 @@ allow init sysfs_battery_supply:file setattr;
 # Usb PD
 allow init sysfs_usbpd_device:file setattr;
 
+# Turbo Charge
+allow init sysfs_power_supply:file { setattr };
+r_dir_file(init, sysfs_batteryinfo)
