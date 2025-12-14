@@ -287,6 +287,7 @@ PRODUCT_PACKAGES += \
     NfcOverlayRodin \
     SettingsResOverlayRodin \
     SystemUIOverlayRodin \
+    Launcher3DeviceOverlay \
 
     
 $(call inherit-product, hardware/mediatek/overlay/mssi.mk)
