@@ -442,3 +442,13 @@ ro.zram.periodic_wb_delay_hours=24
 
 # Zygote
 zygote.critical_window.minute=10
+
+ # LMKD Tuning 
+ro.lmk.use_psi=true
+ro.lmk.psi_partial_stall_ms=70
+ro.lmk.psi_complete_stall_ms=700
+ro.lmk.kill_heaviest_task=true
+ro.lmk.kill_timeout_ms=100
+ro.lmk.swap_free_low_percentage=10
+ro.lmk.thrashing_limit=50
+ro.lmk.thrashing_limit_decay=25 
