@@ -420,18 +420,6 @@
       "Value": "1800000"
     },
     {
-      "PowerHint": "INTERACTION",
-      "Node": "UclampTAMin",
-      "Duration": 500,
-      "Value": "35"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "GpuPwrLevel",
-      "Duration": 500,
-      "Value": "15"
-    },
-    {
       "PowerHint": "LAUNCH",
       "Node": "CPUMidClusterMinFreq",
       "Duration": 3000,

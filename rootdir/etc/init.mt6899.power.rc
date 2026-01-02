@@ -73,9 +73,6 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "sugov_ext"
     write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor "sugov_ext"
     write /sys/devices/system/cpu/cpufreq/policy7/scaling_governor "sugov_ext"
-    # Memory Management for Large ZRAM
-    write /proc/sys/vm/swappiness 100
-    write /proc/sys/vm/vfs_cache_pressure 100
 
     # Adjust watermark level
     write /proc/sys/vm/watermark_scale_factor 120
