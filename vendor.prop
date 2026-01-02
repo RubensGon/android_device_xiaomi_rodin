@@ -443,6 +443,11 @@ ro.zram.periodic_wb_delay_hours=24
 # Zygote
 zygote.critical_window.minute=10
 
+# Graphics Rendering Tuning
+debug.hwui.renderer=skiavk
+renderthread.skia.reduceopstasksplitting=true
+ro.hwui.use_vulkan=true
+
  # LMKD Tuning 
 ro.lmk.use_psi=true
 ro.lmk.psi_partial_stall_ms=70
