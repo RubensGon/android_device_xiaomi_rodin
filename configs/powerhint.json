@@ -401,29 +401,23 @@
     }
   ],
   "Actions": [
-    {
+{
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 400,
-      "Value": "1300000"
+      "Duration": 500,
+      "Value": "1500000"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUMidClusterMinFreq",
-      "Duration": 400,
-      "Value": "1300000"
+      "Duration": 500,
+      "Value": "1600000"
     },
     {
       "PowerHint": "INTERACTION",
-      "Node": "UclampFGMin",
-      "Duration": 400,
-      "Value": "15"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "UclampTAMin",
-      "Duration": 400,
-      "Value": "40"
+      "Node": "CPUBigClusterMinFreq",
+      "Duration": 500,
+      "Value": "1800000"
     },
     {
       "PowerHint": "LAUNCH",
