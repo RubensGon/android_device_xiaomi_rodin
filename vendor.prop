@@ -218,7 +218,7 @@ ro.vendor.arm.gralloc.no_afbc_usage_mask=0x1200000000000000
 ro.vendor.arm.gralloc.shared_access_usage_flags=0x10000000
 ro.vendor.arm.gralloc.shared_access_usage_mask=0x50000000
 ro.vendor.mtk.gpud.mm.fbc.disable=false
-ro.vendor.mtk_aal_support=1
+ro.vendor.mtk_aal_support=0
 ro.vendor.mtk_aod_support=1
 ro.vendor.mml.mtk_mml_support=1
 ro.vendor.mtk_ovl_bringup=0
@@ -452,3 +452,6 @@ ro.lmk.kill_timeout_ms=100
 ro.lmk.swap_free_low_percentage=10
 ro.lmk.thrashing_limit=50
 ro.lmk.thrashing_limit_decay=25 
+
+ro.vendor.display.cwb=0
+ro.vendor.display.sensortrigger=0
