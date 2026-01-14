@@ -102,21 +102,21 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
-      "Duration": 120,
-      "Value": "30",
-      "Comments": ["Pixel Style: Low latency clamp for touch"]
+      "Duration": 500,
+      "Value": "50",
+      "Comments": ["Increased duration and floor to handle notification bursts"]
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPULittleDownRate",
-      "Duration": 120,
-      "Value": "500",
-      "Comments": ["Fast ramp down after touch ends to save power"]
+      "Duration": 500,
+      "Value": "2000",
+      "Comments": ["Slower ramp down (2ms) to prevent jitter during stacked animations"]
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "PMQoSCpuDmaLatency",
-      "Duration": 120,
+      "Duration": 500,
       "Value": "44"
     },
     {
