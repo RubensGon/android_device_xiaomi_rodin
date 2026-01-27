@@ -147,15 +147,9 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/vendor.xiaomi.hardware.camera.injection-service.so'
     ): blob_fixup()
         .replace_needed('android.hardware.camera.device-V1-ndk.so', 'android.hardware.camera.device-V2-ndk.so'),
-    ('vendor/lib64/libcameraopt.so',
-     'vendor/lib64/mt6899/libcam.hal3a.so',
-     'vendor/lib64/mt6899/libcam.hal3a.ctrl.so',
-     'vendor/lib64/mt6899/libmtkcam_taskmgr.so',
-     'vendor/lib64/hw/hwcomposer.mtk_common.so'): blob_fixup()
+    'vendor/lib64/libcameraopt.so': blob_fixup()
         .add_needed('libprocessgroup_shim.so'),
-    ('vendor/lib64/libmicamera_hal_core.so',
-     'vendor/lib64/libmialgoengine.so'): blob_fixup()
-         .add_needed('libprocessgroup_shim.so')
+    'vendor/lib64/libmicamera_hal_core.so': blob_fixup()
         .call(blob_fixup_graphic_buffer_size),
     ('vendor/lib64/mt6899/libneuralnetworks_sl_driver_mtk_prebuilt.so',
      'odm/lib64/libwa_widelens_undistort.so',
