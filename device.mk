@@ -19,7 +19,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 $(call inherit-product, vendor/mediatek/ims/ims.mk)
 
 # Dolby
-$(call inherit-product-if-exists, hardware/dolby/dolby.mk)
+ifeq ($(TARGET_SHIPS_DOLBY), true)
+    $(call inherit-product-if-exists, hardware/dolby/dolby.mk)
+    PRODUCT_PACKAGES += \
+        LunarisDolby
+endif
 
 # Rootdir
 PRODUCT_PACKAGES += \
