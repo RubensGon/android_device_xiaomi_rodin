@@ -1,4 +1,4 @@
-# Unpinned blobs from missi-user 16 BP2A.250605.031.A3 OS3.0.8.0.WOJMIXM release-keys
+# Unpinned blobs from missi-user 16 BP2A.250605.031.A3 OS3.0.4.0.WOJINXM release-keys
 
 # AAL
 vendor/lib64/libaal_cust.so
@@ -219,10 +219,16 @@ vendor/etc/smartpa_param_fs/preset_voip.bin
 # Batterysecret
 vendor/bin/batterysecret
 
+# Mi Charge HAL Service
+vendor/bin/hw/vendor.xiaomi.hardware.micharge-service
+vendor/etc/init/vendor.xiaomi.hardware.micharge-service.rc
+vendor/lib64/vendor.xiaomi.hardware.micharge-V2-ndk.so
+
 # Bluetooth (Driver)
 vendor/etc/init/init.bt_drv.rc
 vendor/firmware/BT_FW.cfg
 vendor/lib64/libbluetooth_mtk.so
+vendor/lib64/libbluetooth_mtk_pure.so
 vendor/lib64/libbt-vendor.so
 
 # Camera
@@ -319,12 +325,13 @@ odm/lib64/camera/plugins/streaming/com.xiaomi.plugin.mihisv3.so
 odm/lib64/camera/plugins/streaming/com.xiaomi.plugin.mimotionvideo.so
 odm/lib64/camera/plugins/streaming/com.xiaomi.plugin.misat.so
 odm/lib64/camera/plugins/streaming/com.xiaomi.plugin.videofilter.so
+odm/lib64/camera/plugins/com.xiaomi.plugin.heifedit.so
 odm/lib64/camera/zsl/com.xiaomi.zsl.default.so
 odm/lib64/camera/zsl/com.xiaomi.zsl.dsac.so
 odm/lib64/camera/zsl/com.xiaomi.zsl.hdr.so
 odm/lib64/libHISCppAlgos.so
 odm/lib64/libMiEmojiEffect.so
-odm/lib64/libMiVideoFilter.so;MODULE_SUFFIX=-odm
+odm/lib64/libMiPhotoFilter.so
 odm/lib64/libalCFR.so
 odm/lib64/libanc_dc_base.so
 odm/lib64/libanc_single_bokeh.so
@@ -332,6 +339,7 @@ odm/lib64/libanc_single_rt_bokeh.so
 odm/lib64/libanc_supervq.so
 odm/lib64/libc++_shared.so
 odm/lib64/libcamera_scene.so
+odm/lib64/libcameraheif.so
 odm/lib64/libdeflicker.so
 odm/lib64/libhandgesture.arcsoft.so
 odm/lib64/libhis_motion_tracker.so
@@ -381,7 +389,6 @@ vendor/lib64/libAF.so
 vendor/lib64/libBasicModule.so
 vendor/lib64/libJpgEncPipe.so
 vendor/lib64/libMiMotion.so
-odm/lib64/libMiPhotoFilter.so:vendor/lib64/libMiPhotoFilter.so
 vendor/lib64/libXMFaceFocus.so
 vendor/lib64/libaaa_aaautil.so
 vendor/lib64/libaaa_afassist_V2.so
@@ -912,6 +919,7 @@ odm/etc/camera/beauty/beauty_config_in.json
 odm/etc/camera/beauty/beauty_config_ru.json
 odm/etc/camera/beauty/resources/style_xiaomi_o10.hdcg
 odm/etc/camera/camerabooster.json
+odm/etc/camera/cameraopt_reclaim.json
 odm/etc/camera/com.xiaomi.dcal.w1u1.golden
 odm/etc/camera/com.xiaomi.dcal.w2u2.golden
 odm/etc/camera/com.xiaomi.dcal.wu.golden
@@ -1361,6 +1369,7 @@ vendor/bin/hw/android.hardware.graphics.composer@3.3-service
 vendor/bin/hw/mt6899/android.hardware.graphics.allocator-V2-service-mediatek.mt6899;SYMLINK=vendor/bin/hw/android.hardware.graphics.allocator-V2-service-mediatek
 vendor/bin/hw/mt6899/arm.mali.platform-service.mediatek.mt6899;SYMLINK=vendor/bin/hw/arm.mali.platform-service.mediatek
 vendor/bin/hw/vendor.mediatek.hardware.gpuserv-service
+vendor/lib64/vendor.mediatek.hardware.gpuserv-V2-ndk.so
 vendor/etc/gralloc/cam.xml
 vendor/etc/gralloc/dpu.xml
 vendor/etc/gralloc/dpu_aeu.xml
@@ -1385,6 +1394,7 @@ vendor/lib64/hw/hwcomposer.mtk_common.so
 vendor/lib64/hw/mt6899/android.hardware.graphics.allocator-V2-mediatek.so;SYMLINK=vendor/lib64/hw/android.hardware.graphics.allocator-V2-mediatek.so
 vendor/lib64/hw/mt6899/mapper.mediatek.so;SYMLINK=vendor/lib64/hw/mapper.mediatek.so
 vendor/lib64/hw/mt6899/vulkan.mali.so;SYMLINK=vendor/lib64/hw/vulkan.mali.so
+vendor/lib64/hw/gralloc.default.so
 vendor/lib64/libDefaultFpsActor.so
 vendor/lib64/libFrameRecord.so
 vendor/lib64/libNoFpsActor.so
@@ -1493,6 +1503,9 @@ vendor/lib64/vendor.xiaomi.hardware.aidl.mtdservice-V1-ndk.so
 
 # Neural Networks
 system/etc/public.libraries-mtk.txt
+system/etc/public.libraries-xiaomi.txt
+system_ext/etc/public.libraries-hyperos.txt
+system_ext/etc/public.libraries-xiaomi.txt
 system_ext/lib64/libapuwareapusys.mtk.so
 system_ext/lib64/libapuwareapusys_v2.mtk.so
 system_ext/lib64/libapuwarehmp.mtk.so
@@ -1525,7 +1538,7 @@ system_ext/lib64/libmvpuop25_mtk_nn.mtk.so
 system_ext/lib64/libmvpuop_mtk_cv.mtk.so
 system_ext/lib64/libmvpuop_mtk_nn.mtk.so
 system_ext/lib64/libneuron_graph_delegate.mtk.so
-system_ext/lib64/libneuronusdk_adapter.mtk.so
+system_ext/lib64/libneuronusdk_adapter.mtk.so;FIX_SONAME
 system_ext/lib64/libnir_neon_driver_ndk.mtk.so
 system_ext/lib64/libtflite_mtk.mtk.so
 system_ext/lib64/vendor.mediatek.hardware.apuware.apusys-V5-ndk.so
@@ -1581,6 +1594,8 @@ vendor/lib64/mt6899/libneuron_runtime.8.so;SYMLINK=vendor/lib64/libneuron_runtim
 vendor/lib64/mt6899/libneuron_runtime.so;SYMLINK=vendor/lib64/libneuron_runtime.so
 vendor/lib64/mt6899/libneuron_wrapper.so;SYMLINK=vendor/lib64/libneuron_wrapper.so
 vendor/lib64/vendor.mediatek.hardware.mtkpower-V1-ndk.so
+vendor/lib64/vendor.mediatek.hardware.mtkpower-V2-ndk.so
+vendor/lib64/vendor.mediatek.hardware.mtkpower_applist-V2-ndk.so
 vendor/lib64/vendor.mediatek.hardware.neuropilot.agent-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.neuropilot.agent@1.0.so
 vendor/lib64/vendor.mediatek.hardware.neuropilot.agent@1.1.so
@@ -1591,6 +1606,8 @@ odm/etc/libnfc-nci.conf
 odm/etc/libnfc-nxp.conf
 odm/etc/libnfc-nxp_RF.conf:vendor/libnfc-nxp_RF.conf
 vendor/lib64/libsn220u_fw.so
+vendor/etc/libnfc-nxp-pnscr.conf
+vendor/bin/pnscr
 
 # NVRAM
 vendor/bin/hw/vendor.mediatek.hardware.nvram-service
@@ -1700,6 +1717,7 @@ vendor/lib64/libvia-ril.so
 vendor/lib64/libviamipc-ril.so
 vendor/lib64/libwpfa.so
 vendor/lib64/libxiaomi_mtkril.so
+vendor/lib64/libudf.so
 vendor/lib64/vendor.mediatek.hardware.clientapi-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mdmonitor-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mdmonitor@1.0.so
@@ -1739,7 +1757,7 @@ vendor/etc/ecc_list_OP236.xml
 vendor/etc/ecc_list_preference.xml
 vendor/etc/mpe.conf
 vendor/etc/special_pws_channel.xml
-vendor/etc/vendor-apns-conf.xml
+system/etc/apns-conf.xml:vendor/etc/apns-conf.xml
 vendor/etc/virtual-spn-conf-by-efgid1.xml
 vendor/etc/virtual-spn-conf-by-efpnn.xml
 vendor/etc/virtual-spn-conf-by-efspn.xml
@@ -1751,14 +1769,22 @@ vendor/bin/hw/vendor.xiaomi.hardware.secure_element-service
 vendor/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc
 vendor/etc/init/secure_element-service.rc
 
+# LEDs 
+odm/etc/init/init_leds.rc
+
 # Sensors
 odm/lib64/libclient2slpi.notifier.so
+vendor/lib64/hw/android.hardware.sensors@2.X-subhal-mediatek.so
 vendor/lib64/hw/sensors.dynamic_sensor_hal.so
 vendor/lib64/hw/sensors.elliptic@2.0.so
+vendor/lib64/sensors.touch.detect.so
 vendor/lib64/hw/sensors.mediatek.V2.0.so:vendor/lib64/hw/sensors.mt6899.so;FIX_SONAME
 vendor/lib64/libhfmanager.so
 vendor/lib64/libhfmanagerwrapper.so
 vendor/lib64/libhidparser.so
+vendor/etc/permissions/android.hardware.sensor.stepcounter.prebuilt.xml
+vendor/etc/permissions/android.hardware.sensor.stepdetector.prebuilt.xml
+vendor/etc/permissions/android.hardware.sensor.proximity.prebuilt.xml
 
 # Sensor (Proximity) - from rothko OS2.0.16.0.VNNEUXM
 vendor/lib64/libnotifyaudiohal.so;FIX_SONAME|a02f3e44bb5e84760925722ae3e9c66957e94c9d|fe4ea475de5a45ee1c1ebb0f4c05c2a6827b53f8
@@ -1781,6 +1807,7 @@ odm/etc/vintf/manifest/vendor.xiaomi.sensor.citsensorservice.aidl.xml
 vendor/lib64/vendor.xiaomi.sensor.citsensorservice-V1-ndk.so
 
 # TEE
+odm/mitee/ta/123af5d1-d6f5-cc54-f78fa19030b2e76a.ta
 odm/mitee/ta/a3ba6512-6e0e-4065-93165e4a7d04ca08.ta
 vendor/bin/miteelog
 vendor/bin/tee-supplicant
@@ -1814,8 +1841,76 @@ vendor/lib64/vendor.xiaomi.hardware.aidl.tidaservice-V1-ndk.so
 
 # Thermal
 vendor/bin/mi_thermald
+vendor/etc/task_profiles.json
+system/etc/cgroups.json:vendor/etc/cgroups.json
 vendor/etc/thermal-map.conf
+vendor/etc/thermalbreakboostconfig.xml
 vendor/etc/thermald-devices.conf
+vendor/etc/thermal/disable_skin_control.conf
+vendor/etc/thermal/disable_thermal.conf
+vendor/etc/thermal/disable_thermal_temp.conf
+vendor/etc/thermal/disable_throttling.conf
+vendor/etc/thermal/fix_ttj_85.conf
+vendor/etc/thermal/fix_ttj_95.conf
+vendor/etc/thermal/thermal.conf
+vendor/etc/thermal/thermal_evb.conf
+vendor/etc/thermal/thermal_hqa_normal.conf
+vendor/etc/thermal/thermal_hqa_perf.conf
+vendor/etc/thermal/thermal_mtbf.conf
+vendor/etc/thermal/thermal_policy_00.conf
+vendor/etc/thermal/thermal_policy_01.conf
+vendor/etc/thermal/thermal_policy_02.conf
+vendor/etc/thermal/thermal_policy_03.conf
+vendor/etc/thermal/thermal_policy_08.conf
+vendor/etc/thermal/thermal_policy_09.conf
+vendor/etc/thermal/thermal_policy_10.conf
+odm/etc/thermal-4k.conf
+odm/etc/thermal-arvr.conf
+odm/etc/thermal-camera.conf
+odm/etc/thermal-cclassvideo.conf
+odm/etc/thermal-cgame.conf
+odm/etc/thermal-charge.conf
+odm/etc/thermal-chg-only.conf
+odm/etc/thermal-class0.conf
+odm/etc/thermal-hp-mgame.conf
+odm/etc/thermal-hp-normal.conf
+odm/etc/thermal-huanji.conf
+odm/etc/thermal-in-4k.conf
+odm/etc/thermal-in-arvr.conf
+odm/etc/thermal-in-camera.conf
+odm/etc/thermal-in-cclassvideo.conf
+odm/etc/thermal-in-cgame.conf
+odm/etc/thermal-in-class0.conf
+odm/etc/thermal-in-highfps.conf
+odm/etc/thermal-in-hp-mgame.conf
+odm/etc/thermal-in-hp-normal.conf
+odm/etc/thermal-in-huanji.conf
+odm/etc/thermal-in-map.conf
+odm/etc/thermal-in-mgame.conf
+odm/etc/thermal-in-navigation.conf
+odm/etc/thermal-in-nolimits.conf
+odm/etc/thermal-in-normal.conf
+odm/etc/thermal-in-per-class0.conf
+odm/etc/thermal-in-per-normal.conf
+odm/etc/thermal-in-per-video.conf
+odm/etc/thermal-in-phone.conf
+odm/etc/thermal-in-tgame.conf
+odm/etc/thermal-in-video.conf
+odm/etc/thermal-in-videochat.conf
+odm/etc/thermal-in-yuanshen.conf
+odm/etc/thermal-mgame.conf
+odm/etc/thermal-navigation.conf
+odm/etc/thermal-nolimits.conf
+odm/etc/thermal-normal.conf
+odm/etc/thermal-per-class0.conf
+odm/etc/thermal-per-normal.conf
+odm/etc/thermal-per-video.conf
+odm/etc/thermal-phone.conf
+odm/etc/thermal-region-map.conf
+odm/etc/thermal-tgame.conf
+odm/etc/thermal-video.conf
+odm/etc/thermal-videochat.conf
+odm/etc/thermal-yuanshen.conf
 
 # Tether Offload
 vendor/bin/hw/tetheroffloadservice
