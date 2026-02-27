@@ -290,6 +290,8 @@ PRODUCT_PACKAGES += \
     SettingsResOverlayRodin \
     SystemUIOverlayRodin \
     TetheringConfigOverlay \
+    
+$(call inherit-product, hardware/mediatek/overlay/mssi.mk)
 
 # Parts
 PRODUCT_PACKAGES += \
@@ -316,6 +318,8 @@ PRODUCT_COPY_FILES += \
 include $(DEVICE_PATH)/vendor_logtag.mk
 
 # Radio
+ENABLE_VENDOR_RIL_SERVICE := true
+
 PRODUCT_PACKAGES += \
     vendor_mdota_symlink
 
