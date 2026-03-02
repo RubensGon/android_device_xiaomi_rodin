@@ -11,6 +11,7 @@ allow hal_audio_default sound_device:chr_file rw_file_perms;
 allow hal_audio_default sysfs_re25_calib:file rw_file_perms;
 allow hal_audio_default sysfs_fsm_re25:file rw_file_perms;
 allow hal_audio_default sysfs_fsm_f0:file rw_file_perms;
+allow hal_audio_default vendor_default_prop:file { read getattr map open watch watch_reads };
 
 set_prop(hal_audio_default, vendor_mtk_audio_prop)
 
