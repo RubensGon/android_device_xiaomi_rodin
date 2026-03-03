@@ -28,11 +28,14 @@
         <value>3</value>
         <value>1</value>
     </array>
-    <!-- FIX 3: Removed legacy cpu.speeds.cluster0 (single value 480000 was inconsistent
-         with the actual cluster0 speed table). cpu.core_speeds.* entries below are correct. -->
+    <array name="cpu.speeds.cluster0">
+        <value>480000</value>
+    </array>
+    <array name="cpu.active.cluster0">
+        <value>0.1</value>
+    </array>
     <item name="cpu.idle">8.99</item>
     <item name="cpu.suspend">7.71</item>
-    <!-- FIX 1: Removed stray '.' that was between this element and the next -->
     <item name="cpu.active">20.20</item>
     <item name="cpu.cluster_power.cluster0">2.11</item>
     <item name="cpu.cluster_power.cluster1">2.22</item>
@@ -203,7 +206,7 @@
     <array name="wifi.controller.tx_levels">
         <value>1</value>
     </array>
-    <item name="wifi.controller.voltage">3700</item>
+    <item name="wifi.controller.voltage">4000</item>
     <array name="wifi.batchedscan">
         <value>.0002</value>
         <value>.002</value>
