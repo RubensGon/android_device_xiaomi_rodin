@@ -1,4 +1,4 @@
-# Unpinned blobs from missi-user 16 BP2A.250605.031.A3 OS3.0.4.0.WOJINXM release-keys
+# All blobs from missi-user 16 BP2A.250605.031.A3 OS3.0.9.0.WOJMIXM release-keys, unless pinned
 
 # AAL
 vendor/lib64/libaal_cust.so
@@ -1985,6 +1985,7 @@ vendor/etc/init/init.wlan_drv.rc
 vendor/etc/init/netdagent.rc
 vendor/etc/init/wlan_assistant.rc
 vendor/etc/vintf/manifest/CommandService.xml
+vendor/lib64/libwapi.so
 vendor/lib64/libwifical.so
 vendor/lib64/libwifinvram.so
 vendor/lib64/libwifinvramdata.so
