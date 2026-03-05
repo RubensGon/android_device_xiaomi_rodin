@@ -8,57 +8,8 @@ ro.vendor.localhbm.enable=true
 ro.vendor.mi_sf.hdr_enable_flatmode=true
 ro.vendor.mtk.pq.aidl=true
 ro.vendor.mtk.pq.odm=true
-
-# HDR and Video Features
-ro.vendor.display.dolbyvision.support=false
-ro.vendor.standard.video.enable=true
-ro.vendor.media.video.style.support=true
-
-# Display Region Processing
-ro.vendor.sdr2hdr.by.layer.support=false
-ro.vendor.regionpq.by.layer.support=true
-
-# Display UI Service (Xiaomi display management)
-ro.vendor.display.uiservice.enable=true
-ro.vendor.display.uiservice_track.enable=true
-ro.vendor.display.uiservice_tpidle_timer.enable=true
-ro.vendor.display.uiservice_snm.enable=true
-
-# Refresh Rate and FPS Configuration
-# Default refresh rate
-ro.vendor.display.default_fps=120
-ro.vendor.fps.switch.default=true
-ro.vendor.fps.switch.thermal=true
-
-# Touch idle feature (REQUIRED for power saving)
-ro.vendor.display.touch.idle.enable=true
-ro.surface_flinger.set_touch_timer_ms=1100
-debug.sf.set_idle_timer_ms=1100
-debug.sf.default_idle_timer_ms=1100
-
-# FPS monitoring for specific features
-ro.vendor.display.fod_monitor_default_fps=120
-ro.vendor.display.heartrate_lockfps_support=true
-ro.vendor.display.aod_monitor_default_fps=60
-
-# Display Performance Features
-ro.vendor.display.ultimate.perf.support=true
-ro.vendor.display.frame_capture_manager.enable=true
-
-# Display Resolution (1220x2712)
-vendor.display.default_resolution=1220,2712
-
-# Brightness Remapping for smooth transitions (REQUIRED)
-ro.vendor.display.RemapBrightness.ToleranceEnable=1
-ro.vendor.display.RemapBrightness.ToleranceNit=500
-ro.vendor.display.RemapBrightness.MinTolerancefac=1
-ro.vendor.display.RemapBrightness.MaxTolerancefac=1.09
-ro.vendor.display.RemapBrightness.MaxRemapSilkybrightness=16379
-
-ro.vendor.display.video_or_camera_fps.support=true
-
-# DisplayFeature Configuration (REQUIRED for AOSP)
-# sys.displayfeature_hidl=false is REQUIRED for AOSP (no MIUI DisplayFeature HAL)
+ro.vendor.sre.enable=false
+ro.vendor.xiaomi.bl.poll=true
 sys.displayfeature_hidl=false
 vendor.displayfeature.entry.enable=true
 
