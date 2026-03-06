@@ -1,0 +1,6 @@
+# Thermal Daemon - Battery Sysfs Access
+allow vendor_mi_thermald sysfs_battery_supply:dir { search open read getattr };
+allow vendor_mi_thermald sysfs_battery_supply:file { read open getattr };
+allow vendor_mi_thermald sysfs_thermal:dir { search open read getattr };
+allow vendor_mi_thermald sysfs_thermal:file { read write open getattr };
+

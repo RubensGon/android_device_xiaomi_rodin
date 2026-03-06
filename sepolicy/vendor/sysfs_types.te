@@ -1,0 +1,22 @@
+#
+# Sysfs battery and power supply types
+# These types are used to label battery, charger, and power supply sysfs entries
+#
+
+# Battery supply sysfs type
+type sysfs_battery_supply, sysfs_type, fs_type;
+
+# Vendor-specific battery supply sysfs type
+type vendor_sysfs_battery_supply, sysfs_type, fs_type;
+
+# Additional power supply related types
+type sysfs_usb_supply, sysfs_type, fs_type;
+
+# Haptic F0 value sysfs type
+type sysfs_f0_value, sysfs_type, fs_type;
+
+# TI Battery related sysfs type
+type sysfs_ti_battery, sysfs_type, fs_type;
+
+# Vendor LED file sysfs type
+type vendor_sysfs_led_file, sysfs_type, fs_type;

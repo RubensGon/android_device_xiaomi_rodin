@@ -1,0 +1,3 @@
+# USB HAL - UDC Sysfs Access
+allow mtk_hal_usb sysfs_udc:dir { search open read getattr };
+allow mtk_hal_usb sysfs_udc:file { read write open getattr };

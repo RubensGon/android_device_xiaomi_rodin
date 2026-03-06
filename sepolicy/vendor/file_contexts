@@ -1,7 +1,7 @@
 # Audio
-/dev/socket/audio_hw_socket                                                                            u:object_r:audio_socket:s0
 /dev/elliptic[0-1]                                                                                     u:object_r:sensors_device:s0
 /dev/fs16xx(/.*)?                                                                                      u:object_r:fs16xx_device:s0
+/dev/socket/audio_hw_socket                                                                            u:object_r:audio_socket:s0
 
 # Batterysecret
 /(vendor|system/vendor)/bin/batterysecret                                                              u:object_r:vendor_batterysecret_exec:s0
@@ -10,13 +10,13 @@
 /data/vendor/camera(/.*)?                                                                              u:object_r:vendor_camera_data_file:s0
 /mnt/vendor/persist/camera(/.*)?                                                                       u:object_r:camera_persist_file:s0
 /odm/bin/crossbuild/DataSet/SQLiteModule/db(/.*)?                                                      u:object_r:vendor_camera_update_db_file:s0
-/odm/lib(64)?/libarcsoft_beautyshot\.so u:object_r:same_process_hal_file:s0
-/odm/lib(64)?/libmiocr\.so u:object_r:same_process_hal_file:s0
+/odm/lib(64)?/libHISCppAlgos\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libanc_dc_base\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libanc_single_bokeh\.so u:object_r:same_process_hal_file:s0
+/odm/lib(64)?/libarcsoft_beautyshot\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libc\+\+_shared\.so u:object_r:same_process_hal_file:s0
-/odm/lib(64)?/libHISCppAlgos\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libhis_motion_tracker\.so u:object_r:same_process_hal_file:s0
+/odm/lib(64)?/libmiSAT\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmiai_deblur\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmiaio_aio_seg\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmiaio_head_seg\.so u:object_r:same_process_hal_file:s0
@@ -24,70 +24,73 @@
 /odm/lib(64)?/libmialgo_cls\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmialgo_depth\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmialgo_ds_nn\.so u:object_r:same_process_hal_file:s0
-/odm/lib(64)?/libmialgoengine_custom\.so u:object_r:same_process_hal_file:s0
-/odm/lib(64)?/libmialgoengine\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmialgo_ie_capture\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmialgo_sd\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmialgo_utils\.so u:object_r:same_process_hal_file:s0
+/odm/lib(64)?/libmialgoengine\.so u:object_r:same_process_hal_file:s0
+/odm/lib(64)?/libmialgoengine_custom\.so u:object_r:same_process_hal_file:s0
+/odm/lib(64)?/libmiocr\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmiphone_capture_bokeh\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmiphone_dualcam_depth_aideploy\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmiphone_preview_bokeh\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmiphone_preview_depth\.so u:object_r:same_process_hal_file:s0
-/odm/lib(64)?/libmiSAT\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmpbase\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/librfs_warp\.so u:object_r:same_process_hal_file:s0
 /vendor/etc/camera/beauty/libarcsoft_beautyshot\.so u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/libapu_mdw_batch\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libapu_mdw\.so u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libapu_mdw_batch\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libapusys\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libarmnn\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libcmdl\.so u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libcom.xiaomi.pluginutils\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libcom\.xiaomi\.debug\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libcom\.xiaomi\.ecoenginemonitor\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libcom\.xiaomi\.hwadapter\.decoupleutil\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libcom\.xiaomi\.mivihal\.cpupolicy\.so u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/libcom.xiaomi.pluginutils\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libcom\.xiaomi\.pluginutils\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libcom\.xiaomi\.signaltrigger\.so u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/libmialgoengine_custom\.so u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libmiSATTranslate\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libmialgoengine\.so u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libmialgoengine_custom\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libmibokeh_mt6873\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libmicamera_hal_core\.so u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/libmiSATTranslate\.so u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/libmvpu_config_data\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libmvpu_config\.so u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libmvpu_config_data\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libmvpu_engine_25_pub\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libmvpu_pattern_25_pub\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libneuron_adapter\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libneuron_runtime\.8\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libneuron_runtime\.so u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/mt6899/libcam\.hal3a\.ctrl\.so                u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/mt6899/libcam\.hal3a\.v3\.ai3a_v4l2\.so       u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/mt6899/libcameracustom\.so                    u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/mt6899/libfeature\.aiseg\.linux\.so           u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/mt6899/libmtkcam_hwnode\.jpegnode\.so         u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/mt6899/libmtkcam_taskmgr\.so                  u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/mt6899/libneuron_runtime\.8\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/mt6899/libneuron_runtime\.so u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/mt6899/libmtkcam_hwnode\.jpegnode\.so         u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/mt6899/libfeature\.aiseg\.linux\.so           u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/mt6899/libcameracustom\.so                    u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/mt6899/libmtkcam_taskmgr\.so                  u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/mt6899/libcam\.hal3a\.v3\.ai3a_v4l2\.so       u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/mt6899/libcam\.hal3a\.ctrl\.so                u:object_r:same_process_hal_file:s0
 
 # Display
 /(vendor|system/vendor)/bin/displayfeature                                                             u:object_r:vendor_displayfeature_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.displayfeature_aidl-service                   u:object_r:vendor_hal_displayfeature_default_exec:s0
+/data/vendor/display(/.*)?                                                                             u:object_r:vendor_display_data_file:s0
 /dev/mi_display/disp_feature                                                                           u:object_r:vendor_displayfeature_device:s0
 /mnt/vendor/persist/display(/.*)?                                                                      u:object_r:vendor_persist_display_file:s0
-/data/vendor/display(/.*)?                                                                             u:object_r:vendor_display_data_file:s0
+
+# LEDs
+/sys/devices/platform/soc/11281000.i2c/i2c-11/11-0030/leds/aw21024_led(/.*)?                           u:object_r:vendor_sysfs_led_file:s0
 
 # Fido
 /(odm|vendor/odm|system/vendor)/bin/fidoca_mitee                                                       u:object_r:hal_mfidoca_default_exec:s0
 
 # Fingerpint
-/dev/socket/fpsensor_socket    u:object_r:fpsensor_socket:s0
-/dev/xiaomi-fp u:object_r:fingerprint_device:s0
-/data/vendor/fpdump(/.*)? u:object_r:fingerprint_vendor_data_file:s0
-/data/vendor/gf_data(/.*)? u:object_r:fingerprint_vendor_data_file:s0
-/data/vendor/goodix(/.*)? u:object_r:fingerprint_vendor_data_file:s0
-/mnt/vendor/persist/goodix(/.*)? u:object_r:fingerprint_vendor_data_file:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi              u:object_r:hal_fingerprint_default_exec:s0
+/data/vendor/fpdump(/.*)?                                                                              u:object_r:fingerprint_vendor_data_file:s0
+/data/vendor/gf_data(/.*)?                                                                             u:object_r:fingerprint_vendor_data_file:s0
+/data/vendor/goodix(/.*)?                                                                              u:object_r:fingerprint_vendor_data_file:s0
+/dev/socket/fpsensor_socket                                                                            u:object_r:fpsensor_socket:s0
+/dev/xiaomi-fp                                                                                         u:object_r:fingerprint_device:s0
+/mnt/vendor/persist/goodix(/.*)?                                                                       u:object_r:fingerprint_vendor_data_file:s0
 
 # Gatekeeper
 /(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.mitee                            u:object_r:hal_gatekeeper_default_exec:s0
@@ -108,10 +111,11 @@
 
 # Power
 /dev/xiaomi-touch                                                                                      u:object_r:vendor_touchfeature_device:s0
+/vendor/bin/hw/android\.hardware\.power-service\.lineage-libperfmgr                                    u:object_r:hal_power_default_exec:s0
 
 # Sensor
-/vendor/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal                                     u:object_r:hal_sensors_default_exec:s0
-/(odm|vendor/odm|system/vendor)/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl                      u:object_r:vendor_hal_citsensorservice_xiaomi_default_exec:s0
+/(odm|vendor/odm|vendor|system/vendor)/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl               u:object_r:vendor_hal_citsensorservice_xiaomi_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal                     u:object_r:hal_sensors_default_exec:s0
 
 # TouchFeature
 /(odm|vendor/odm|system/vendor)/bin/hw/vendor\.xiaomi\.hw\.touchfeature-service                        u:object_r:hal_touchfeature_xiaomi_default_exec:s0
@@ -120,24 +124,47 @@
 /(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.secure_element-service                        u:object_r:hal_secure_element_default_exec:s0
 
 # Thermal
-/(vendor|system/vendor)/bin/mi_thermald                                                                u:object_r:vendor_mi_thermald_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.thermal-service\.pixel                               u:object_r:hal_thermal_default_exec:s0
+/(vendor|system/vendor)/bin/mi_thermald                                                                u:object_r:vendor_mi_thermald_exec:s0
 /(vendor|system/vendor)/bin/thermal_symlinks                                                           u:object_r:init-thermal-symlinks-sh_exec:s0
 
 # Trusted Execution Environment (TEE)
-/(vendor|system/vendor)/bin/tee-supplicant                                                             u:object_r:tee_exec:s0
 /(vendor|system/vendor)/bin/miteelog                                                                   u:object_r:tee_exec:s0
+/(vendor|system/vendor)/bin/tee-supplicant                                                             u:object_r:tee_exec:s0
+/data/vendor/mitee(/.*)?                                                                               u:object_r:mitee_data_file:s0
 /dev/0:0:0:49476                                                                                       u:object_r:teei_rpmb_device:s0
 /dev/tee0                                                                                              u:object_r:teei_client_device:s0
 /dev/teepriv0                                                                                          u:object_r:teei_client_device:s0
 /dev/ufs-bsg0                                                                                          u:object_r:teei_client_device:s0
-/data/vendor/mitee(/.*)?                                                                               u:object_r:mitee_data_file:s0
 
 # Vibrator
-/(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.rodin u:object_r:hal_vibrator_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.rodin                         u:object_r:hal_vibrator_default_exec:s0
+/sys/bus/i2c/drivers/awinic_haptic/[0-9]+-00+[a-z0-9]+[a-z0-9]/f0_value                                u:object_r:sysfs_f0_value:s0
 
 # Touchboost
-/(vendor|system/vendor)/bin/touch_boost      u:object_r:touch_boost_exec:s0
+/(vendor|system/vendor)/bin/touch_boost                                                                u:object_r:touch_boost_exec:s0
 
 # Process and system statistics files
-/proc/stat                                                                                                                                                u:object_r:proc_stat:s0
+/proc/stat                                                                                             u:object_r:proc_stat:s0
+
+# Battery
+/sys/devices/platform/11e00000.i2c/i2c-0/0-0035/power_supply/xmusb350(/.*)?     u:object_r:sysfs_usb_supply:s0
+/sys/devices/platform/11e00000.i2c/i2c-0/0-0035/switching_charger/xmusb350(/.*)?        u:object_r:sysfs_usb_supply:s0
+/sys/devices/platform/11e01000.i2c/i2c-5/5-0034/11e01000.i2c:mt6375@34:mtk_gauge/power_supply/battery(/.*)?                      u:object_r:sysfs_battery_supply:s0
+/sys/devices/platform/battery-manager/power_supply/battery(/.*)?                      u:object_r:sysfs_battery_supply:s0
+/sys/devices/platform/soc/11280000.i2c/i2c-5/5-0034/11280000.i2c:mt6375@34:mtk_gauge/power_supply/battery(/.*)?                      u:object_r:sysfs_battery_supply:s0
+
+# Wakeups
+/sys/bus/i2c/drivers/haptic_rt/[0-9]+-00+[a-z0-9]+[a-z0-9]/f0_value  u:object_r:sysfs_f0_value:s0
+/sys/bus/i2c/drivers/sih_haptic_688X/[0-9]+-00+[a-z0-9]+[a-z0-9]/f0_value  u:object_r:sysfs_f0_value:s0
+/sys/devices/platform/11015000.i2c0/i2c-0/0-0035/power_supply/Charger_Identify(/.*)?            u:object_r:sysfs_usb_supply:s0
+/sys/devices/platform/battery-manager/power_supply/battery/wakeup(.*)(/.*)?                                              u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/charger/power_supply/usb/wakeup(.*)(/.*)?                                                          u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/odm/odm:xiaomi_fingerprint/wakeup(/.*)?   u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/11011800.spi1/spi_master/spi1/spi1.0/wakeup(.*)(/.*)? u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/11280000.i2c/i2c-10/10-0055/power_supply/bms(/.*)?        u:object_r:sysfs_usb_supply:s0
+/sys/devices/platform/soc/11280000.i2c/i2c-10/10-0055/power_supply/bms/wakeup(.*)(/.*)?                                  u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/11280000.i2c/i2c-10/10-006e/power_supply/bq25985-battery/wakeup(.*)(/.*)?                      u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/11280000.i2c/i2c-10/10-006e/power_supply/cp_master/wakeup(.*)(/.*)?                            u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/11280000.i2c/i2c-10/10-006f/power_supply/cp_master(/.*)?        u:object_r:sysfs_ti_battery:s0
+/sys/devices/platform/soc/11280000.i2c/i2c-10/10-006f/power_supply/cp_master/wakeup(.*)(/.*)?                            u:object_r:sysfs_wakeup:s0
