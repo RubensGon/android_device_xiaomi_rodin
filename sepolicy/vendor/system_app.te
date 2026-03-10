@@ -1,0 +1,21 @@
+# DisplayFeature
+hal_client_domain(system_app, vendor_hal_displayfeature)
+binder_call(system_app, vendor_hal_displayfeature)
+
+# TouchFeature
+hal_client_domain(system_app, hal_touchfeature_xiaomi)
+binder_call(system_app, hal_touchfeature_xiaomi)
+allow system_app hal_touchfeature_xiaomi_service:service_manager find;
+
+# Thermal
+rw_dir_file(system_app, sysfs_therm)
+
+# CPU
+allow system_app proc_stat:file { read open getattr };
+
+# Allow CIT app to read the vendor fingerprint properties
+get_prop(system_app, vendor_fingerprint_prop)
+allow system_app sysfs_fsm_re25:file { read write open getattr };
+allow system_app sysfs_fsm_f0:file { read write open getattr };
+allow system_app vendor_audio_data_file:dir { read write open create search add_name };
+allow system_app vendor_audio_data_file:file { read write open create getattr };
