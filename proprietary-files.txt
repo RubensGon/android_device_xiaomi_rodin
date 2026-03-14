@@ -324,6 +324,7 @@ odm/lib64/camera/zsl/com.xiaomi.zsl.dsac.so
 odm/lib64/camera/zsl/com.xiaomi.zsl.hdr.so
 odm/lib64/libHISCppAlgos.so
 odm/lib64/libMiEmojiEffect.so
+odm/lib64/libMiVideoFilter.so;MODULE_SUFFIX=-odm
 odm/lib64/libalCFR.so
 odm/lib64/libanc_dc_base.so
 odm/lib64/libanc_single_bokeh.so
@@ -380,7 +381,7 @@ vendor/lib64/libAF.so
 vendor/lib64/libBasicModule.so
 vendor/lib64/libJpgEncPipe.so
 vendor/lib64/libMiMotion.so
-odm/lib64/libMiPhotoFilter.so
+odm/lib64/libMiPhotoFilter.so:vendor/lib64/libMiPhotoFilter.so
 vendor/lib64/libXMFaceFocus.so
 vendor/lib64/libaaa_aaautil.so
 vendor/lib64/libaaa_afassist_V2.so
@@ -1524,7 +1525,7 @@ system_ext/lib64/libmvpuop25_mtk_nn.mtk.so
 system_ext/lib64/libmvpuop_mtk_cv.mtk.so
 system_ext/lib64/libmvpuop_mtk_nn.mtk.so
 system_ext/lib64/libneuron_graph_delegate.mtk.so
-system_ext/lib64/libneuronusdk_adapter.mtk.so;FIX_SONAME
+system_ext/lib64/libneuronusdk_adapter.mtk.so
 system_ext/lib64/libnir_neon_driver_ndk.mtk.so
 system_ext/lib64/libtflite_mtk.mtk.so
 system_ext/lib64/vendor.mediatek.hardware.apuware.apusys-V5-ndk.so
