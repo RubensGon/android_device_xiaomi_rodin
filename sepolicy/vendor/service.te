@@ -2,7 +2,7 @@
 type hal_dynamic_camera_service, protected_service, service_manager_type, hal_service_type;
 
 # Display
-type vendor_hal_displayfeature_service, protected_service, service_manager_type;
+type vendor_hal_displayfeature_service, hal_service_type, protected_service, service_manager_type;
 
 # Fido
 type hal_mfidoca_service, protected_service, service_manager_type;
