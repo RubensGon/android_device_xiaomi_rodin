@@ -271,6 +271,11 @@ service batterysecret /vendor/bin/batterysecret
     disabled
 
 on property:sys.boot_completed=1
+    # batterysecret
+    chmod 0664 /sys/devices/platform/charger/power_supply/usb/pd_authentication
+    chmod 0664 /sys/devices/platform/soc/11280000.i2c/i2c-10/10-0055/power_supply/bms/authentic
+    chmod 0664 /sys/devices/platform/pd-adapter/Charging_Adapter/pd_adapter/request_vdm_cmd
+    chmod 0664 /sys/devices/platform/pd-adapter/Charging_Adapter/pd_adapter/verify_process
     start batterysecret
 
     # Adjust watermark level
@@ -334,6 +339,11 @@ on property:ro.product.device=xaga
 on property:ro.product.device=xagain
     setprop persist.vendor.accelerate.charge false
 
+    chmod 0664 /sys/devices/platform/charger/power_supply/usb/pd_authentication
+    chmod 0664 /sys/devices/platform/soc/11280000.i2c/i2c-10/10-0055/power_supply/bms/authentic
+    chmod 0664 /sys/devices/platform/pd-adapter/Charging_Adapter/pd_adapter/request_vdm_cmd
+    chmod 0664 /sys/devices/platform/pd-adapter/Charging_Adapter/pd_adapter/verify_process
+    start batterysecret
 
 service vendor.gralloc-v2 /vendor/bin/hw/android.hardware.graphics.allocator-V2-service-mediatek
     class hal animation
