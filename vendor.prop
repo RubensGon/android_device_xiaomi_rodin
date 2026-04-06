@@ -221,9 +221,7 @@ ro.vendor.mtk_ovl_bringup=0
 ro.vendor.composer_version=3.3
 
 # HWUI
-debug.cpurend.vsync=false
-debug.hwui.target_cpu_time_percent=30
-debug.hwui.use_hint_manager=true
+debug.cpurend.vsync=true
 
 # IMS
 persist.vendor.mtk.volte.enable=1
@@ -439,15 +437,10 @@ ro.zram.periodic_wb_delay_hours=24
 # Zygote
 zygote.critical_window.minute=10
 
- # LMKD Tuning 
-ro.lmk.use_psi=true
-ro.lmk.psi_partial_stall_ms=70
-ro.lmk.psi_complete_stall_ms=700
-ro.lmk.kill_heaviest_task=true
-ro.lmk.kill_timeout_ms=100
-ro.lmk.swap_free_low_percentage=10
-ro.lmk.thrashing_limit=50
-ro.lmk.thrashing_limit_decay=25 
-
 ro.vendor.display.cwb=0
 ro.vendor.display.sensortrigger=0
+
+# LMK 
+ro.lmk.filecache_min_kb=153600
+ro.lmk.kill_timeout_ms=50
+ro.lmk.stall_limit_critical=40
