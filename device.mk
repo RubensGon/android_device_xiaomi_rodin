@@ -189,6 +189,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 $(call soong_config_set,XIAOMI_BIOMETRICS_FINGERPRINT,IMPL_VER,V2)
+
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint-service.xiaomi \
     libudfpshandler
@@ -287,7 +288,7 @@ PRODUCT_PACKAGES += \
     NfcOverlayRodin \
     SettingsResOverlayRodin \
     SystemUIOverlayRodin \
-    TetheringConfigOverlay \
+
     
 $(call inherit-product, hardware/mediatek/overlay/mssi.mk)
 
