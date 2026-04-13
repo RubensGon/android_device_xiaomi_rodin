@@ -35,6 +35,8 @@ namespace_imports = [
     'hardware/mediatek',
     'hardware/mediatek/libmtkperf_client',
     'hardware/xiaomi',
+    'hardware/dolby',
+
 ]
 
 def blob_fixup_graphic_buffer_size(
@@ -317,6 +319,8 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libcodec2_store_dolby-mtk.so': blob_fixup()
         .replace_needed('libcodec2_soft_ac4dec.so', 'libcodec2_soft_ac4dec-mtk.so')
         .replace_needed('libcodec2_soft_ddpdec.so', 'libcodec2_soft_ddpdec-mtk.so'),
+
+} # fmt: skip
 
 module = ExtractUtilsModule(
     'rodin',
