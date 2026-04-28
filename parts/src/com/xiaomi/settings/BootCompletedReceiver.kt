@@ -15,7 +15,6 @@ import android.util.Log
 import android.view.Display
 import android.view.Display.HdrCapabilities
 import com.xiaomi.settings.display.ColorService
-import com.xiaomi.settings.thermal.ThermalUtils
 import com.xiaomi.settings.touchsampling.TouchSamplingService;
 import com.xiaomi.settings.turbocharging.TurboChargingService
 
@@ -44,9 +43,6 @@ class BootCompletedReceiver : BroadcastReceiver() {
 
         // Touch Sampling
         context.startServiceAsUser(Intent(context, TouchSamplingService::class.java), UserHandle.CURRENT)
-
-        // Thermal
-        ThermalUtils.getInstance(context).startService()
 
         // Start TurboChargingService
         val turboChargingIntent = Intent(context, TurboChargingService::class.java)
