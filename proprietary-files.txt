@@ -234,7 +234,6 @@ vendor/etc/smartpa_param_fs/preset_ringtone.bin
 vendor/etc/smartpa_param_fs/preset_voice.bin
 vendor/etc/smartpa_param_fs/preset_voip.bin
 vendor/lib64/vendor.mediatek.hardware.audio@6.1.so
-vendor/lib64/vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so
 
 # Batterysecret
 vendor/bin/batterysecret
