@@ -1,7 +1,7 @@
 # Audio
 aaudio.mmap_exclusive_policy=2
 aaudio.mmap_policy=2
-audio.deep_buffer.media=false
+audio.deep_buffer.media=true
 audio.offload.min.duration.secs=30
 audio.offload.video=true
 persist.audio.button_jack.profile=volume
@@ -17,11 +17,8 @@ ro.config.vc_call_vol_steps=11
 ro.vendor.audio.BTCodec.unsupport.spatial=APTX;APTX_HD;APTX_ADAPTIVE;APTX_TWSP;LHDCV1;LHDCV2;LHDCV3;LHDCV5
 ro.vendor.audio.camera.ble.record.disable=true
 ro.vendor.audio.denoiseutils=true
-ro.vendor.audio.feature.fade=false
-ro.vendor.audio.feature.spatial=1
-ro.audio.spatializer_enabled=true
-ro.audio.spatializer_binaural_enabled_default=true
-ro.audio.spatializer_transaural_enabled_default=false
+ro.vendor.audio.feature.fade=true
+ro.vendor.audio.feature.spatial=0
 ro.vendor.audio.gain.support=true
 ro.vendor.audio.game.mode=true
 ro.vendor.audio.media.volume.steps=30
@@ -68,7 +65,6 @@ vendor.streamin.pcm.dump=0
 
 # APK Verity
 ro.apk_verity.mode=2
-
 
 # Bluetooth
 bluetooth.device.default_name=POCO X7 Pro
