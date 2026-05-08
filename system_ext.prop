@@ -9,3 +9,6 @@ ro.camera.sound.forced=0
 wifi.direct.interface=p2p0
 wifi.interface=wlan0
 wifi.tethering.interface=ap0
+
+# Memtag
+persist.arm64.memtag.default=off
