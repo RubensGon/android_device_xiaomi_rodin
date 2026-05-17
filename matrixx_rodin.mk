@@ -15,13 +15,16 @@ TARGET_SUPPORTED_REFRESH_RATES := 60,120
 EXTRA_UDFPS_ANIMATIONS := true
 TARGET_CUSTOM_UDFPS := true
 WITH_BCR := true
-PERF_ANIM_OVERRIDE := true
 TARGET_INCLUDE_PIXEL_LAUNCHER := true
 TARGET_DEFAULT_PIXEL_LAUNCHER := true
 WITH_GMS_COMMS_SUITE := true
 WITH_GMS_AICORE := true
 TARGET_SHIPS_DOLBY := true
+SURFACE_FLINGER_BOOST := true
 TARGET_BOOT_ANIMATION_RES := 1080
+USE_REALITY_ENGINE := false
+HBM_SUPPORTED := true
+TARGET_OPTIMIZED_DEXOPT := true
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/matrixx/config/common_full_phone.mk)
