@@ -12,12 +12,8 @@
             <nits>500.0</nits>
         </point>
         <point>
-            <value>0.999938957</value>
-            <nits>1400</nits>
-        </point>
-        <point>
             <value>1.0</value>
-            <nits>1401.0</nits>
+            <nits>1400.0</nits>
         </point>
     </screenBrightnessMap>
     <!-- root node for HBM-->
