@@ -20,7 +20,6 @@ PATCHES=(
     "packages/apps/Aperture 0001-Aperture-Allow-disabling-video-stabilization.patch"
     "packages/apps/Aperture 0001-Aperture-Enable-MediaTek-HFPS-Mode-for-60-FPS-video-.patch"
     "external/wpa_supplicant_8 0001-wpa_supplicant-Import-MediaTek-wlan-chips-OUI-change.patch"
-    "packages/apps/Settings 0001-rodin-Drop-X-Reality-Engine-Causes-Dead-Screen.patch"
 )
 
 for entry in "${PATCHES[@]}"; do
