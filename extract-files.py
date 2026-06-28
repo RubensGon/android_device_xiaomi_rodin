@@ -184,6 +184,11 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libultrahdr_rodin.so': blob_fixup()
         .replace_needed('libjpegencoder.so', 'libjpegencoder_rodin.so')
         .replace_needed('libjpegdecoder.so', 'libjpegdecoder_rodin.so'),
+    (
+        'vendor/lib64/libcodec2_mtk_vdec.so',
+        'vendor/lib64/libcodec2_mtk_venc.so'
+    ): blob_fixup()
+        .replace_needed('libformatter.so', 'libformatter_mtk.so'),
     ('odm/lib64/camera/plugins/capture/com.xiaomi.plugin.gainmap.so',
      'odm/lib64/camera/plugins/capture/com.xiaomi.plugin.jpegrAggr.so'): blob_fixup()
         .replace_needed('libultrahdr.so', 'libultrahdr_rodin.so'),
@@ -236,10 +241,15 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
         .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
-    'vendor/lib64/soundfx/libdlbvolaidl.so': blob_fixup()
-        .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
+    'vendor/lib64/soundfx/libdlbvolaidl.so': blob_fixup(),
     'system_ext/bin/hw/android.hardware.audio.parameter_parser.service': blob_fixup()
-        .replace_needed('android.hardware.audio.core-V3-ndk.so', 'android.hardware.audio.core-V4-ndk.so'),
+        .replace_needed('android.hardware.audio.core-V3-ndk.so', 'android.hardware.audio.core-V4-ndk.so')
+        .replace_needed('libmnl.so', 'libmnl_mtk.so')
+        .replace_needed('libformatter.so', 'libformatter_mtk.so'),
+    (
+        'vendor/lib64/libmnl_mtk.so'
+    ): blob_fixup()
+        .fix_soname()    
 }  # fmt: skip
 
 module = ExtractUtilsModule(
