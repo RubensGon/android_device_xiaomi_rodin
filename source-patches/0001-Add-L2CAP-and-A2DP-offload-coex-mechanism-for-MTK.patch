@@ -1,35 +1,37 @@
-From 92549f3b3ed77c98ca4bc7316bfd2f0662ac11f9 Mon Sep 17 00:00:00 2001
-From: rio004 <riyon336@gmail.com>
-Date: Sun, 22 Feb 2026 21:16:58 +0000
+From 29cd9faf007ed5846319c53fb706d2a2ecd90b9c Mon Sep 17 00:00:00 2001
+From: nift4 <nift4@protonmail.com>
+Date: Sun, 17 Aug 2025 23:25:47 +0200
 Subject: [PATCH] Add L2CAP and A2DP offload coex mechanism for MTK
 
-Co-authored-by: nift4 <nift4@protonmail.com>
+Co-authored-by: rio004 <riyon336@gmail.com>
 Change-Id: I7047fa496f60843e664e4b34f12e1c27f492a4ba
 ---
- system/bta/av/bta_av_aact.cc              | 48 +++++++++++++++++--
+ system/bta/av/bta_av_aact.cc              | 54 ++++++++++++++++++---
  system/bta/av/bta_av_int.h                |  1 +
  system/stack/include/l2cap_av_interface.h | 25 ++++++++++
  system/stack/l2cap/l2c_int.h              |  4 ++
- system/stack/l2cap/l2c_link.cc            | 57 ++++++++++++++++++++++-
- 5 files changed, 131 insertions(+), 4 deletions(-)
+ system/stack/l2cap/l2c_link.cc            | 58 ++++++++++++++++++++++-
+ 5 files changed, 135 insertions(+), 7 deletions(-)
  create mode 100644 system/stack/include/l2cap_av_interface.h
 
 diff --git a/system/bta/av/bta_av_aact.cc b/system/bta/av/bta_av_aact.cc
-index 7cf03c3a5e..a97f4b8e4f 100644
+index 536cb0db7f..fcb7e7778e 100644
 --- a/system/bta/av/bta_av_aact.cc
 +++ b/system/bta/av/bta_av_aact.cc
 @@ -80,6 +80,7 @@
- #include "stack/include/btm_log_history.h"
- #include "stack/include/btm_status.h"
  #include "stack/include/l2cap_interface.h"
+ #include "stack/include/l2cap_types.h"
+ #include "stack/include/sdpdefs.h"
 +#include "stack/include/l2cap_av_interface.h"
  #include "storage/config_keys.h"
  
  using namespace bluetooth;
-@@ -3060,6 +3061,11 @@ static void offload_vendor_callback(tBTM_VSC_CMPL* param) {
+@@ -3025,7 +3026,12 @@ static void offload_vendor_callback(tBTM_VSC_CMPL* param) {
+     switch (sub_opcode) {
        case VS_HCI_A2DP_OFFLOAD_STOP:
        case VS_HCI_A2DP_OFFLOAD_STOP_V2:
-         log::verbose("VS_HCI_STOP_A2DP_MEDIA successful");
+-        log::debug("VS_HCI_STOP_A2DP_MEDIA successful");
++        log::verbose("VS_HCI_STOP_A2DP_MEDIA successful");
 +        l2c_link_set_br_coex_buf_cap(0, base::BindOnce([](bool success) {
 +          if (!success) {
 +            log::error("failed resetting coex buffer cap");
@@ -38,10 +40,12 @@ index 7cf03c3a5e..a97f4b8e4f 100644
          break;
        case VS_HCI_A2DP_OFFLOAD_START:
        case VS_HCI_A2DP_OFFLOAD_START_V2:
-@@ -3077,15 +3083,38 @@ static void offload_vendor_callback(tBTM_VSC_CMPL* param) {
+@@ -3042,17 +3048,40 @@ static void offload_vendor_callback(tBTM_VSC_CMPL* param) {
+         break;
      }
    } else {
-     log::verbose("Offload failed for subopcode= {}", sub_opcode);
+-    log::debug("Offload failed for subopcode= {}", sub_opcode);
++    log::verbose("Offload failed for subopcode= {}", sub_opcode);
 +    if (param->opcode == VS_HCI_A2DP_OFFLOAD_ENABLE_COEX)
 +      return;
      if (param->opcode != VS_HCI_A2DP_OFFLOAD_STOP && param->opcode != VS_HCI_A2DP_OFFLOAD_STOP_V2) {
@@ -74,11 +78,13 @@ index 7cf03c3a5e..a97f4b8e4f 100644
 +
  static void bta_av_vendor_offload_start(tBTA_AV_SCB* p_scb, tBT_A2DP_OFFLOAD* offload_start) {
 -  uint8_t param[sizeof(tBT_A2DP_OFFLOAD)];
+-  log::debug("");
 +  uint8_t* param = reinterpret_cast<uint8_t*>(osi_malloc(sizeof(tBT_A2DP_OFFLOAD)));
-   log::verbose("");
++  log::verbose("");
  
    uint8_t* p_param = param;
-@@ -3111,8 +3140,21 @@ static void bta_av_vendor_offload_start(tBTA_AV_SCB* p_scb, tBT_A2DP_OFFLOAD* of
+   *p_param++ = VS_HCI_A2DP_OFFLOAD_START;
+@@ -3077,8 +3106,21 @@ static void bta_av_vendor_offload_start(tBTA_AV_SCB* p_scb, tBT_A2DP_OFFLOAD* of
            offload_start->codec_type, offload_start->sample_rate, offload_start->bits_per_sample,
            offload_start->ch_mode, offload_start->encoded_audio_bitrate, offload_start->acl_hdl,
            offload_start->l2c_rcid, offload_start->mtu);
@@ -103,10 +109,10 @@ index 7cf03c3a5e..a97f4b8e4f 100644
  
  static void bta_av_vendor_offload_start_v2(tBTA_AV_SCB* p_scb, A2dpCodecConfigExt* offload_codec) {
 diff --git a/system/bta/av/bta_av_int.h b/system/bta/av/bta_av_int.h
-index a2c2dacc47..da01124909 100644
+index 69d48beeb4..18b66db730 100644
 --- a/system/bta/av/bta_av_int.h
 +++ b/system/bta/av/bta_av_int.h
-@@ -658,6 +658,7 @@ constexpr uint8_t kEnablingAttemptsCountMaximum = 5;
+@@ -657,6 +657,7 @@ constexpr uint8_t kEnablingAttemptsCountMaximum = 5;
  #define VS_HCI_A2DP_OFFLOAD_STOP 0x02
  #define VS_HCI_A2DP_OFFLOAD_START_V2 0x03
  #define VS_HCI_A2DP_OFFLOAD_STOP_V2 0x04
@@ -146,7 +152,7 @@ index 0000000000..8cd7e5342a
 +using tL2C_COEX_READY = base::OnceCallback<void(bool)>;
 +void l2c_link_set_br_coex_buf_cap(uint16_t bufs_to_disable, tL2C_COEX_READY cb);
 diff --git a/system/stack/l2cap/l2c_int.h b/system/stack/l2cap/l2c_int.h
-index 4132da36e2..facc7e1082 100644
+index f3e80791ce..ae14480dcc 100644
 --- a/system/stack/l2cap/l2c_int.h
 +++ b/system/stack/l2cap/l2c_int.h
 @@ -40,6 +40,7 @@
@@ -157,7 +163,7 @@ index 4132da36e2..facc7e1082 100644
  #include "stack/l2cap/internal/l2c_api.h"
  
  #define L2CAP_MIN_MTU 48 /* Minimum acceptable MTU is 48 bytes */
-@@ -615,7 +616,10 @@ struct tL2C_CB {
+@@ -638,7 +639,10 @@ struct tL2C_CB {
  
    bool disallow_switch;     /* false, to allow switch at create conn */
    uint16_t num_lm_acl_bufs; /* # of ACL buffers on controller */
@@ -169,18 +175,19 @@ index 4132da36e2..facc7e1082 100644
    tL2C_LCB* p_cur_hcit_lcb; /* Current HCI Transport buffer */
    uint16_t num_used_lcbs;   /* Number of active link control blocks */
 diff --git a/system/stack/l2cap/l2c_link.cc b/system/stack/l2cap/l2c_link.cc
-index c67bd1a53d..b7570c1670 100644
+index a3d6bc94f7..be330bf43d 100644
 --- a/system/stack/l2cap/l2c_link.cc
 +++ b/system/stack/l2cap/l2c_link.cc
-@@ -35,6 +35,7 @@
+@@ -35,6 +35,8 @@
  #include "device/include/device_iot_config.h"
  #include "internal_include/bt_target.h"
  #include "osi/include/allocator.h"
 +#include "osi/include/properties.h"
- #include "stack/btm/btm_int_types.h"
++#include "stack/btm/btm_int_types.h"
  #include "stack/btm/btm_sco.h"
  #include "stack/btm/btm_sec.h"
-@@ -46,6 +47,7 @@
+ #include "stack/include/acl_api.h"
+@@ -44,6 +46,7 @@
  #include "stack/include/btm_status.h"
  #include "stack/include/hci_error_code.h"
  #include "stack/include/l2cap_acl_interface.h"
@@ -188,7 +195,7 @@ index c67bd1a53d..b7570c1670 100644
  #include "stack/include/l2cap_controller_interface.h"
  #include "stack/include/l2cap_hci_link_interface.h"
  #include "stack/include/l2cap_security_interface.h"
-@@ -683,6 +685,7 @@ void l2c_link_adjust_chnl_allocation(void) {
+@@ -688,6 +691,7 @@ void l2c_link_adjust_chnl_allocation(void) {
  }
  
  void l2c_link_init(const uint16_t acl_buffer_count_classic) {
@@ -196,7 +203,7 @@ index c67bd1a53d..b7570c1670 100644
    l2cb.num_lm_acl_bufs = acl_buffer_count_classic;
    l2cb.controller_xmit_window = acl_buffer_count_classic;
  }
-@@ -748,6 +751,48 @@ void l2c_pin_code_request(const RawAddress& bd_addr) {
+@@ -753,6 +757,48 @@ void l2c_pin_code_request(const RawAddress& bd_addr) {
    }
  }
  
@@ -245,7 +252,7 @@ index c67bd1a53d..b7570c1670 100644
  /*******************************************************************************
   *
   * Function         l2c_link_check_send_pkts
-@@ -1025,7 +1070,17 @@ void l2c_packets_completed(uint16_t handle, uint16_t num_sent) {
+@@ -1030,7 +1076,17 @@ void l2c_packets_completed(uint16_t handle, uint16_t num_sent) {
  
    switch (p_lcb->transport) {
      case BT_TRANSPORT_BR_EDR:
@@ -265,5 +272,5 @@ index c67bd1a53d..b7570c1670 100644
          l2cb.update_outstanding_classic_packets(num_sent);
        }
 -- 
-2.53.0
+2.54.0
 
