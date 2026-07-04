@@ -74,8 +74,6 @@ def lib_fixup_odm_suffix(lib: str, partition: str, *args, **kwargs):
 
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
-    ('vendor.xiaomi.hw.touchfeature-V1-ndk'): lib_fixup_vendor_suffix,
-    ('vendor.xiaomi.hardware.fingerprintextension-V1-ndk'): lib_fixup_vendor_suffix,
     (
         'libneuron_graph_delegate.mtk',
         'libtflite_mtk',
@@ -95,7 +93,6 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libui_shim.so')
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     (
-        'vendor/bin/mnld',
         'vendor/lib64/mt6899/libpqconfig.so',
         'vendor/lib64/mt6899/libaalservice.so',
         'odm/lib64/libpaperMode.so',
@@ -168,7 +165,6 @@ blob_fixups: blob_fixups_user_type = {
     ('vendor/lib64/mt6899/libneuralnetworks_sl_driver_mtk_prebuilt.so',
      'odm/lib64/libwa_widelens_undistort.so',
      'odm/lib64/libarcsoft_beautyshot.so',
-     'vendor/lib64/libMiPhotoFilter.so',
      'odm/lib64/libMiEmojiEffect.so',
      'vendor/lib64/mt6899/libneuron_adapter_mgvi.so',
      'odm/lib64/libMiVideoFilter.so'): blob_fixup()
@@ -232,16 +228,16 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
     'vendor/lib64/hw/android.hardware.soundtrigger3-impl.so': blob_fixup()
         .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
-    'vendor/lib64/libaudio_aidl_conversion_common_ndk_prebuilt.so': blob_fixup()
+    'vendor/lib64/libaudio_aidl_conversion_common_ndk_prebuilt.so': blob_fixup() 
         .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
     (
+         'vendor/lib64/soundfx/libdlbvolaidl.so',
          'vendor/lib64/soundfx/libswdapaidl.so',
          'vendor/lib64/soundfx/libswgamedapaidl.so',
          'vendor/lib64/soundfx/libswspatializeraidl.so'
     ): blob_fixup()
         .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
         .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
-    'vendor/lib64/soundfx/libdlbvolaidl.so': blob_fixup(),
     'system_ext/bin/hw/android.hardware.audio.parameter_parser.service': blob_fixup()
         .replace_needed('android.hardware.audio.core-V3-ndk.so', 'android.hardware.audio.core-V4-ndk.so')
         .replace_needed('libmnl.so', 'libmnl_mtk.so')
@@ -250,6 +246,31 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libmnl_mtk.so'
     ): blob_fixup()
         .fix_soname()    
+        .replace_needed('android.hardware.audio.core-V3-ndk.so', 'android.hardware.audio.core-V4-ndk.so'),
+    'vendor/lib64/libformatter_mtk.so': blob_fixup()
+        .fix_soname(),
+
+    'vendor/etc/init/android.hardware.audio.service-aidl.mediatek.rc': blob_fixup()
+        .regex_replace(
+            'onrestart restart audioserver',
+            'onrestart restart audioserver\n    onrestart restart vendor.sensors-hal-multihal\n    onrestart restart citsensorservice'
+        ),
+    'vendor/bin/mnld': blob_fixup()
+        .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so')
+        .replace_needed('libmnl.so', 'libmnl_mtk.so'),
+    'system_ext/bin/spkcal_tfa': blob_fixup()
+        .add_needed('libaudioclient_shim.so'),
+    'odm/lib64/libMiPhotoFilter.so': blob_fixup()
+        .add_needed('libbinder_shim.so')
+        .clear_symbol_version('AHardwareBuffer_allocate')
+        .clear_symbol_version('AHardwareBuffer_createFromHandle')
+        .clear_symbol_version('AHardwareBuffer_describe')
+        .clear_symbol_version('AHardwareBuffer_getNativeHandle')
+        .clear_symbol_version('AHardwareBuffer_isSupported')
+        .clear_symbol_version('AHardwareBuffer_lock')
+        .clear_symbol_version('AHardwareBuffer_lockPlanes')
+        .clear_symbol_version('AHardwareBuffer_release')
+        .clear_symbol_version('AHardwareBuffer_unlock'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
