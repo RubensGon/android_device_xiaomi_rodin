@@ -101,7 +101,9 @@
         "on",
         "auto"
       ],
-      "WriteOnly": true
+      "WriteOnly": true,
+      "ResetOnInit": true,
+      "DefaultIndex": 1
     },
     {
       "Name": "GPULoadPollInterval",
@@ -522,13 +524,13 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
-      "Duration": 2000,
+      "Duration": 1000,
       "Value": "30"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampFGMin",
-      "Duration": 2000,
+      "Duration": 1000,
       "Value": "15"
     },
     {
@@ -552,7 +554,7 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "GPUBlockBoost",
-      "Duration": 2000,
+      "Duration": 1000,
       "Value": "20"
     },
     {
@@ -567,61 +569,61 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "UclampTAMin",
-      "Duration": 2000,
+      "Duration": 1000,
       "Value": "100"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "UclampFGMin",
-      "Duration": 2000,
+      "Duration": 1000,
       "Value": "20"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 2000,
+      "Duration": 1000,
       "Value": "1200000"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUMidClusterMinFreq",
-      "Duration": 2000,
+      "Duration": 1000,
       "Value": "2000000"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBigClusterMinFreq",
-      "Duration": 2000,
+      "Duration": 1000,
       "Value": "1200000"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "SchedutilRateLimitLittle",
-      "Duration": 2000,
+      "Duration": 1000,
       "Value": "0"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "SchedutilRateLimitMid",
-      "Duration": 2000,
+      "Duration": 1000,
       "Value": "0"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "SchedutilRateLimitBig",
-      "Duration": 2000,
+      "Duration": 1000,
       "Value": "0"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "GpuPwrLevel",
-      "Duration": 2000,
+      "Duration": 1000,
       "Value": "-1"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "GPUBlockBoost",
-      "Duration": 2000,
+      "Duration": 1000,
       "Value": "20"
     },
     {
@@ -675,19 +677,19 @@
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
       "Node": "SchedutilRateLimitLittle",
       "Duration": 50,
-      "Value": "2000"
+      "Value": "1000"
     },
     {
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
       "Node": "SchedutilRateLimitMid",
       "Duration": 50,
-      "Value": "2000"
+      "Value": "1000"
     },
     {
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
       "Node": "SchedutilRateLimitBig",
       "Duration": 50,
-      "Value": "2000"
+      "Value": "1000"
     },
     {
       "PowerHint": "LOW_POWER",
