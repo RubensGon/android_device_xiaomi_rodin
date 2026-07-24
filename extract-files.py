@@ -210,6 +210,8 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libpqxmlparser.so',
         'vendor/lib64/librt_extamp_intf.so',
         'vendor/lib64/libsilkybrightnesscore.so',
+        'vendor/lib64/librgbwlightsensor.so',
+        'odm/lib64/libmiXmlParser.so',
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'odm/etc/init/vendor.xiaomi.sensor.citsensorservice.aidl.rc': blob_fixup()

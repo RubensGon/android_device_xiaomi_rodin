@@ -140,6 +140,8 @@ persist.vendor.sys.fp.expolevel=0x88
 persist.vendor.fingerprint.type=udfps_optical
 persist.vendor.fingerprint.sensor_location=610|2437|108
 ro.vendor.sensors.xiaomi.udfps=true
+ro.vendor.audio.us.proximity=true
+ro.vendor.audio.us.proximity_waitfornegative_feature=true
 
 # Graphics
 debug.graphics.game_default_frame_rate.disabled=true
@@ -215,6 +217,10 @@ ro.vendor.composer_version=3.3
 debug.cpurend.vsync=false
 debug.hwui.target_cpu_time_percent=30
 debug.hwui.use_hint_manager=true
+
+# Init
+ro.vendor.init.sensor.rc=init.sensor_2_0.rc
+ro.vendor.rc=/vendor/etc/init/hw/
 
 # IMS
 persist.vendor.mtk.volte.enable=1

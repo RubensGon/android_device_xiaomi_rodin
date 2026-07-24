@@ -1874,6 +1874,8 @@ odm/etc/sensors/lightSensorConfigSec.json
 odm/etc/sensors/ois_params_data.json
 vendor/etc/elliptic_sensor.xml
 vendor/etc/sensor_diag.cfg
+vendor/etc/sensors/hals.conf
+vendor/lib64/hw/android.hardware.sensors@2.X-subhal-mediatek.so
 
 # SQLite
 vendor/lib64/libSQLiteModule_VER_ALL.so

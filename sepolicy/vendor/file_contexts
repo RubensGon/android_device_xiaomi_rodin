@@ -2,6 +2,7 @@
 /dev/socket/audio_hw_socket                                                                            u:object_r:audio_socket:s0
 /dev/elliptic[0-1]                                                                                     u:object_r:sensors_device:s0
 /dev/fs16xx(/.*)?                                                                                      u:object_r:fs16xx_device:s0
+/odm/bin/hw/vendor\.xiaomi\.sensor\.citsensorservice\.aidl                                             u:object_r:vendor_hal_citsensorservice_xiaomi_default_exec:s0
 
 # Batterysecret
 /(vendor|system/vendor)/bin/batterysecret                                                              u:object_r:vendor_batterysecret_exec:s0
